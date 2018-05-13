@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+<body>
+    <div class="container">
+
+        <h1>Supply Chain</h1>
+
+        <label for="OrderId" >Order Id</label>
+        <input class = "OrderId" id="OrderId" type="text" >
+
+        <label for="ShipComp" >Shipping Company</label>
+        <input class = "ShipComp" id="ShipComp" type="text" >
+
+         <label for="ReceiptComp" >Receiving Company</label>
+        <input class = "ReceiptComp" id="ReceiptComp" type="text" >
+
+         <label for="ProductId" >Product Id</label>
+        <input class = "ProductId" id="ProductId" type="text" >
+
+         <label for="Quantity" >Product Quantity</label>
+        <input class = "Quantity" id="Quantity" type="text" >
+
+
+        <button class="btn btn-default btn-saveOrder" id="SaveOrder">Save Order</button>
+        <button class="btn btn-default btn-viewOrder" id="ViewOrder">View Order</button>
+        <input class = "vieworder" id="vieworder" type="text" placeholder="Order Id">
+         <br\><br\><br\>
+
+        <strong>Order Details:  </strong><span class="OrderDetails"></span>
+
+        <button class="btn btn-default btn-viewOrderList" id="ViewOrderList">View OrderList</button>
+        <button class="btn btn-default btn-countOrders" id="CountOrders">Count Orders</button>
+
+        <br\><br\><br\>
+    
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
