@@ -39,13 +39,16 @@ App = {
   bindEvents: function() {
     $(document).on('click', '#SaveOrder', App.saveOrder);
     $(document).on('click', '#ViewOrder', App.viewOrder);
+    //$(document).on('click', '#ViewTransaction', App.viewTransaction);
+    $(document).on('click', '#ViewOrderList', App.viewOrderList);
+    $(document).on('click', '#CountOrders', App.countOrders);
   },
 
 
   saveOrder : function(event) {
   	event.preventDefault();
-
-  	var orderId = $('#OrderId').val();
+  	//var orderId = $('#OrderId').val();
+    var orderId = Math.floor((Math.random() * 500) + 1);
     var shipComp = $('#ShipComp').val();
   	var receiptComp = $('#ReceiptComp').val();
     var productId = $('#ProductId').val();
@@ -65,14 +68,14 @@ App = {
      	SupplyChainInstance = instance;
      	return SupplyChainInstance.saveOrder(orderId, shipComp, receiptComp, productId, quantity, {from: account});
      }).then(function(result) {
-        //$(document).find('#Name').text('');
-        document.getElementById("OrderId").value="";
+        
         document.getElementById("ShipComp").value="";
         document.getElementById("ReceiptComp").value="";
         document.getElementById("ProductId").value="";
         document.getElementById("Quantity").value="";
         alert('Order saved ');
-
+        $('.OrderDetails').text('Your Order is saved with orderId:' + orderId);
+        
      }).catch(function(err) {
         console.log(err.message);
      });
@@ -106,7 +109,81 @@ App = {
         console.log(err.message);
      });
     });   	
-  }
+  },
+
+  viewOrderList : function(event) {
+    event.preventDefault();
+
+    console.log('Retrieving Order List');
+    var SupplyChainInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+     var account = accounts[0]; 
+
+     App.contracts.SupplyChain.deployed().then(function(instance){
+      SupplyChainInstance = instance;
+      return SupplyChainInstance.viewOrderList({from: account});
+     }).then(function(result) {
+       // alert(result);
+        $('.OrderDetails').text('Order List with Order ids : ' + result);
+     }).catch(function(err) {
+        console.log(err.message);
+     });
+    });     
+  },
+
+  countOrders : function(event) {
+    event.preventDefault();
+
+    console.log('Counting total Orders');
+    var SupplyChainInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+     var account = accounts[0]; 
+
+     App.contracts.SupplyChain.deployed().then(function(instance){
+      SupplyChainInstance = instance;
+      return SupplyChainInstance.countOrders({from: account});
+     }).then(function(result) {
+       // alert(result);
+        $('.OrderDetails').text('Total number of orders are : ' + result);
+     }).catch(function(err) {
+        console.log(err.message);
+     });
+    });     
+  },
+  
+
+  // viewTransaction :  function(event) {
+  //   var number = web3.eth.blockNumber;
+  //   console.log(number);
+  //   //web3.eth.getBlock("latest").then(console.log);
+  //   //web3.eth.getTransaction('0x0e2c70455cf134b7b75dce764e21eda537b0d0734bedb9a53eaf7c8ed3ae2f90').then(console.log);
+  //   // var txHash = web3.eth.getBlock("latest").transactions[0];
+  //   // var tx = web3.eth.getTransaction(txHash);
+  
+  //   // if (tx != null) {
+  //   //   console.log("  tx hash          : " + tx.hash + "\n"
+  //   //     + "   nonce           : " + tx.nonce + "\n"
+  //   //     + "   blockHash       : " + tx.blockHash + "\n"
+  //   //     + "   blockNumber     : " + tx.blockNumber + "\n"
+  //   //     + "   transactionIndex: " + tx.transactionIndex + "\n"
+  //   //     + "   from            : " + tx.from + "\n" 
+  //   //     + "   to              : " + tx.to + "\n"
+  //   //     + "   value           : " + tx.value + "\n"
+  //   //     + "   gasPrice        : " + tx.gasPrice + "\n"
+  //   //     + "   gas             : " + tx.gas + "\n"
+  //   //     + "   input           : " + tx.input);
+  //   // }
+  // }
 	
 };
 
