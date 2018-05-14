@@ -7,37 +7,51 @@
 
 </head>
 <body>
+    
     <div class="container">
 
-        <h1>Supply Chain</h1>
+        <h1>Supply Chain using Blockchain | Demo @ NTU</h1>
+        <table style="width: 400px;" border="1">
+            <tr>
+                <th>
+                <h2 style="text-align: left;"><i>Order Entry</i></h2>
+                <label for="ShipComp" >Shipping Company</label>
+                <input class = "ShipComp" id="ShipComp" type="text" >
 
-        <label for="ShipComp" >Shipping Company</label>
-        <input class = "ShipComp" id="ShipComp" type="text" >
+                <label for="ReceiptComp" >Receiving Company</label>
+                <input class = "ReceiptComp" id="ReceiptComp" type="text">
 
-         <label for="ReceiptComp" >Receiving Company</label>
-        <input class = "ReceiptComp" id="ReceiptComp" type="text" >
+                <label for="ProductId" >Product Id</label>
+                <input class = "ProductId" id="ProductId" type="text">
 
-         <label for="ProductId" >Product Id</label>
-        <input class = "ProductId" id="ProductId" type="text" >
+                <label for="Quantity" >Product Quantity</label>
+                <input class = "Quantity" id="Quantity" type="text">
 
-         <label for="Quantity" >Product Quantity</label>
-        <input class = "Quantity" id="Quantity" type="text" >
+                <button type="button" style="background-color:#D3D3D3;margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:10%" class="btn btn-default btn-saveOrder" id="SaveOrder">Save Order</button>
+                </th>
+            </tr>
+        </table>
+        <p></p>
 
+        <table style="width: 400px;" border="1">
+            <tr>
+                <th>
+                <h2 style="text-align: left;"><i>Order Retreival</i></h2>
 
-        <button class="btn btn-default btn-saveOrder" id="SaveOrder">Save Order</button>
-        
-        <input class = "vieworder" id="vieworder" type="text" placeholder="Order Id"><br/>
+                <input class = "vieworder" id="vieworder" type="text" placeholder="Order Id"><br/>
+                
+                <button type="button" style="background-color:#D3D3D3;margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:10%" class="btn btn-default btn-viewOrder" id="ViewOrder">View Order</button>
+                <!-- <button class="btn btn-default btn-viewTransaction" id="ViewTransaction">View Transaction</button> -->
 
-        <strong>Order Details:  </strong><span class="OrderDetails"></span>
+                <button type="button" style="background-color:#D3D3D3;margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:10%" class="btn btn-default btn-viewOrderList" id="ViewOrderList">View OrderList</button>
 
-        <button class="btn btn-default btn-viewOrder" id="ViewOrder">View Order</button>
-        <!-- <button class="btn btn-default btn-viewTransaction" id="ViewTransaction">View Transaction</button> -->
+                <button type="button" style="background-color:#D3D3D3;margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:10%" class="btn btn-default btn-countOrders" id="CountOrders">Count Orders</button>
 
-        <button class="btn btn-default btn-viewOrderList" id="ViewOrderList">View OrderList</button>
-        <button class="btn btn-default btn-countOrders" id="CountOrders">Count Orders</button>
+                <strong>Order Details:  </strong><span class="OrderDetails"></span>
 
-    
-
+                </th>
+            </tr>
+        </table>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
