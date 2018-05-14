@@ -39,7 +39,8 @@ App = {
   bindEvents: function() {
     $(document).on('click', '#SaveOrder', App.saveOrder);
     $(document).on('click', '#ViewOrder', App.viewOrder);
-   // $(document).on('click', '#ViewTransaction', App.viewTransaction);
+    $(document).on('click', '#ViewTransaction', App.viewTransaction);
+    $(document).on('click', '#ViewBlock', App.viewBlock);
     $(document).on('click', '#ViewOrderList', App.viewOrderList);
     $(document).on('click', '#CountOrders', App.countOrders);
   },
@@ -162,41 +163,41 @@ App = {
   },
   
 
-  // viewTransaction :  function(event) {
-  // var txHash;
-  // web3.eth.getBlock("22", function(error, result){
-  //     if(!error) {
-  //       console.log(JSON.stringify(result));
-  //       txHash = result.hash;
-  //       } else
-  //           console.log('Error in code');
-  // });
-  // console.log(txHash);
-  //   web3.eth.getTransaction(txHash, function(error, result){
-  //   if(!error) {
-  //       console.log(JSON.stringify(result));
-  //       tx = JSON.stringify(result);
-  //   } else
-  //       console.error(error);
-  //   });
-  //   console.log('Transaction details ' + tx);
-  //   // var txHash = web3.eth.getBlock("latest").transactions[0];
-  //   // var tx = web3.eth.getTransaction(txHash);
-  
-  //   if (tx != null) {
-  //     console.log("  tx hash          : " + tx.hash + "\n"
-  //       + "   nonce           : " + tx.nonce + "\n"
-  //       + "   blockHash       : " + tx.blockHash + "\n"
-  //       + "   blockNumber     : " + tx.blockNumber + "\n"
-  //       + "   transactionIndex: " + tx.transactionIndex + "\n"
-  //       + "   from            : " + tx.from + "\n" 
-  //       + "   to              : " + tx.to + "\n"
-  //       + "   value           : " + tx.value + "\n"
-  //       + "   gasPrice        : " + tx.gasPrice + "\n"
-  //       + "   gas             : " + tx.gas + "\n"
-  //       + "   input           : " + tx.input);
-  //   }
-  // }
+  viewTransaction :  function(event) {
+    web3.eth.getBlock("latest", function (error, latestBlock) {
+      if(!error) 
+        GetTransaction(latestBlock);
+      else
+        console.error(error);
+    });
+
+    function GetTransaction(latestBlock) {
+      console.log("getting transaction: " + latestBlock.transactions[0]);
+      var txhash = latestBlock.transactions[0];
+
+      console.log('Current Transaction hash is : ' + txhash );
+      web3.eth.getTransaction(txhash, function(error, tx){
+        if(!error){
+         // $('.OrderDetails').text('Current Transaction Details are : ' + tx);
+         $('.OrderDetails').text("  tx hash : " + tx.hash + "\n" 
+          + "   nonce           : " + tx.nonce + "\n"
+          + "   blockHash       : " + tx.blockHash + "\n"
+          + "   blockNumber     : " + tx.blockNumber + "\n"
+          + "   value           : " + tx.value + "\n"
+          + "   gasPrice        : " + tx.gasPrice + "\n"
+          + "   gas             : " + tx.gas + "\n"
+          );
+        } else
+            console.error(error);
+      });
+
+    }
+
+  },
+
+  viewBlock : function(event) {
+    
+  }
 	
 };
 
