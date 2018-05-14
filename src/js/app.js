@@ -39,7 +39,7 @@ App = {
   bindEvents: function() {
     $(document).on('click', '#SaveOrder', App.saveOrder);
     $(document).on('click', '#ViewOrder', App.viewOrder);
-    //$(document).on('click', '#ViewTransaction', App.viewTransaction);
+   // $(document).on('click', '#ViewTransaction', App.viewTransaction);
     $(document).on('click', '#ViewOrderList', App.viewOrderList);
     $(document).on('click', '#CountOrders', App.countOrders);
   },
@@ -163,26 +163,39 @@ App = {
   
 
   // viewTransaction :  function(event) {
-  //   var number = web3.eth.blockNumber;
-  //   console.log(number);
-  //   //web3.eth.getBlock("latest").then(console.log);
-  //   //web3.eth.getTransaction('0x0e2c70455cf134b7b75dce764e21eda537b0d0734bedb9a53eaf7c8ed3ae2f90').then(console.log);
+  // var txHash;
+  // web3.eth.getBlock("22", function(error, result){
+  //     if(!error) {
+  //       console.log(JSON.stringify(result));
+  //       txHash = result.hash;
+  //       } else
+  //           console.log('Error in code');
+  // });
+  // console.log(txHash);
+  //   web3.eth.getTransaction(txHash, function(error, result){
+  //   if(!error) {
+  //       console.log(JSON.stringify(result));
+  //       tx = JSON.stringify(result);
+  //   } else
+  //       console.error(error);
+  //   });
+  //   console.log('Transaction details ' + tx);
   //   // var txHash = web3.eth.getBlock("latest").transactions[0];
   //   // var tx = web3.eth.getTransaction(txHash);
   
-  //   // if (tx != null) {
-  //   //   console.log("  tx hash          : " + tx.hash + "\n"
-  //   //     + "   nonce           : " + tx.nonce + "\n"
-  //   //     + "   blockHash       : " + tx.blockHash + "\n"
-  //   //     + "   blockNumber     : " + tx.blockNumber + "\n"
-  //   //     + "   transactionIndex: " + tx.transactionIndex + "\n"
-  //   //     + "   from            : " + tx.from + "\n" 
-  //   //     + "   to              : " + tx.to + "\n"
-  //   //     + "   value           : " + tx.value + "\n"
-  //   //     + "   gasPrice        : " + tx.gasPrice + "\n"
-  //   //     + "   gas             : " + tx.gas + "\n"
-  //   //     + "   input           : " + tx.input);
-  //   // }
+  //   if (tx != null) {
+  //     console.log("  tx hash          : " + tx.hash + "\n"
+  //       + "   nonce           : " + tx.nonce + "\n"
+  //       + "   blockHash       : " + tx.blockHash + "\n"
+  //       + "   blockNumber     : " + tx.blockNumber + "\n"
+  //       + "   transactionIndex: " + tx.transactionIndex + "\n"
+  //       + "   from            : " + tx.from + "\n" 
+  //       + "   to              : " + tx.to + "\n"
+  //       + "   value           : " + tx.value + "\n"
+  //       + "   gasPrice        : " + tx.gasPrice + "\n"
+  //       + "   gas             : " + tx.gas + "\n"
+  //       + "   input           : " + tx.input);
+  //   }
   // }
 	
 };
