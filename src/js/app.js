@@ -196,7 +196,28 @@ App = {
   },
 
   viewBlock : function(event) {
-    
+    web3.eth.getBlock("latest", function (error, latestBlock) {
+      if(!error) {
+        console.log("Getting Block details:")
+        PrintBlock(latestBlock);
+      } else
+        console.error(error);
+    });
+
+    function PrintBlock(latestBlock) {
+      $('.OrderDetails').text("Block number     : " + latestBlock.number + "\n"
+          + " hash            : " + latestBlock.hash + "\n"
+          + " parentHash      : " + latestBlock.parentHash + "\n"
+          + " nonce           : " + latestBlock.nonce + "\n"
+          + " miner           : " + latestBlock.miner + "\n"
+          + " difficulty      : " + latestBlock.difficulty + "\n"
+          + " size            : " + latestBlock.size + "\n"
+          + " gasLimit        : " + latestBlock.gasLimit + "\n"
+          + " gasUsed         : " + latestBlock.gasUsed + "\n"
+          + " timestamp       : " + latestBlock.timestamp + "\n"
+          + " transactions    : " + latestBlock.transactions + "\n"
+          );
+    }
   }
 	
 };
