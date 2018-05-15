@@ -9,36 +9,38 @@
 <body>
     
     <div class="container">
-
+        
         <h1>Supply Chain using Blockchain | Demo @ NTU</h1>
-        <table style="width: 400px;" border="1">
+        <table style="width: 1000px;" border="1">
+            <!-- <col width="50%">
+            <col width="50%"> -->
             <tr>
-                <th>
+                <th valign="top" style="width: 500px">
                 <h2 style="text-align: left;"><i>Order Entry</i></h2>
                 <label for="ShipComp" >Shipping Company</label>
-                <input class = "ShipComp" id="ShipComp" type="text" >
+                <input class = "ShipComp" id="ShipComp" type="text" pattern="[A-Za-z]+" title="Shipping Company Name should be alphabetic" required="" >
 
                 <label for="ReceiptComp" >Receiving Company</label>
-                <input class = "ReceiptComp" id="ReceiptComp" type="text">
+                <input class = "ReceiptComp" id="ReceiptComp" type="text" pattern="[A-Za-z]+" title="Receiving Company Name should be alphabetic" required="">
 
                 <label for="ProductId" >Product Id</label>
-                <input class = "ProductId" id="ProductId" type="text">
+                <input class = "ProductId" id="ProductId" type="text" pattern="[A-Za-z0-9]+" title="ProductId should be alphanumeric" required="">
 
                 <label for="Quantity" >Product Quantity</label>
-                <input class = "Quantity" id="Quantity" type="text">
+                <input class = "Quantity" id="Quantity" type="text" pattern="[0-9]+[0-9]*" title="Must be numeric" required="">
 
                 <button type="button" style="background-color:#D3D3D3;margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:10%" class="btn btn-default btn-saveOrder" id="SaveOrder">Save Order</button>
                 </th>
-            </tr>
+<!--             </tr>
         </table>
         <p></p>
 
         <table style="width: 400px;" border="1">
-            <tr>
-                <th>
+            <tr> -->
+                <th valign="top" style="width: 500px">
                 <h2 style="text-align: left;"><i>Order Retreival</i></h2>
 
-                <input class = "vieworder" id="vieworder" type="text" placeholder="Order Id"><br/>
+                <input class = "vieworder" id="vieworder" type="text" placeholder="Order Id" pattern="[0-9]+[0-9]*" title="Must be numeric" required=""><br/>
                 
                 <button type="button" style="background-color:#D3D3D3;margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:10%" class="btn btn-default btn-viewOrder" id="ViewOrder">View Order</button>
                 <!-- <button class="btn btn-default btn-viewTransaction" id="ViewTransaction">View Transaction</button> -->

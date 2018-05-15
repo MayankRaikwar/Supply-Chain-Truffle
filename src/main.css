@@ -4,7 +4,7 @@ body {
     font-family: 'Raleway','Source Sans Pro', 'Arial';
 }
 .container {
-    width: 50%;
+    width: 62%;
     margin: 0 auto;
 }
 label {
@@ -18,7 +18,7 @@ input {
 }
 button {
     margin: 2em 0;
-    padding: 1em 4em;
+    padding: 1.5em 4em;
     display:block;
 }
 
