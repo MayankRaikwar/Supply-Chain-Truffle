@@ -75,7 +75,7 @@ App = {
         document.getElementById("ProductId").value="";
         document.getElementById("Quantity").value="";
         alert('Order saved ');
-        $('.OrderDetails').text('Your Order is saved with orderId:' + orderId);
+        $('.OrderDetails').text('Your Order is saved with order Id:' + orderId);
         
      }).catch(function(err) {
         console.log(err.message);
